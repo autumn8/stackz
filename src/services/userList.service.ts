@@ -1,5 +1,5 @@
-import { logError } from "../../common/services/errorLogger.service";
-import { ApiUser, User } from "../User/user.interface";
+import { logError } from "./errorLogger.service";
+import { ApiUser, User } from "../components/User/user.interface";
 
 const USER_LIST_URL =
   "http://api.stackexchange.com/2.2/users?pagesize=20&order=desc&sort=reputation&site=stackoverflow";

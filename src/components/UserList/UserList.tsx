@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getUserList } from "./userList.service";
+import { getUserList } from "../../services/userList.service";
 import { User } from "../User/user.interface";
 import UserInfo from "../User/UserInfo";
 
