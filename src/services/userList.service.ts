@@ -1,5 +1,6 @@
 import { logError } from "./errorLogger.service";
 import { ApiUser, User } from "../components/User/user.interface";
+import axios from "axios";
 
 const USER_LIST_URL =
   "http://api.stackexchange.com/2.2/users?pagesize=20&order=desc&sort=reputation&site=stackoverflow";
@@ -12,21 +13,16 @@ const USER_LIST_URL =
  */
 
 async function getUserList(): Promise<User[]> {
-  try {
-    const users = await fetchUsers();
-    return users.map((user: ApiUser) => {
-      const { profile_image, display_name, reputation } = user;
-      if (!display_name) throw Error("No user name");
-      return {
-        profileImage: profile_image,
-        displayName: display_name,
-        reputation,
-      };
-    });
-  } catch (error) {
-    logError(error as Error);
-    return [];
-  }
+  const users = await fetchUsers();
+  console.log(users);
+  return users.map((user: ApiUser) => {
+    const { profile_image, display_name, reputation } = user;
+    return {
+      profileImage: profile_image,
+      displayName: display_name,
+      reputation,
+    };
+  });
 }
 
 /**
@@ -37,9 +33,8 @@ async function getUserList(): Promise<User[]> {
  */
 
 async function fetchUsers() {
-  const response = await fetch(USER_LIST_URL);
-  const json = await response.json();
-  return json.items;
+  const response = await axios.get(USER_LIST_URL);
+  return response.data.items;
 }
 
 export { getUserList };
