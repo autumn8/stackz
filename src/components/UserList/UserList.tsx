@@ -3,6 +3,7 @@ import { getUserList } from "../../services/userList.service";
 import { User } from "../User/user.interface";
 import UserInfo from "../User/UserInfo";
 import "./UserList.scss";
+import { logError } from "../../services/errorLogger.service";
 
 const UserList = () => {
   const [userList, setUserList] = useState<User[]>([]);
@@ -16,8 +17,7 @@ const UserList = () => {
       const userList = await getUserList();
       setUserList(userList);
     } catch (error) {
-      // TODO: handle error more elegantly.
-      console.error(error);
+      logError(error as Error);
     }
   }
 
