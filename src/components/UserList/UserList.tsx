@@ -14,10 +14,13 @@ const UserList = () => {
 
   async function init() {
     try {
+      // TODO add loading indicator
       const userList = await getUserList();
       setUserList(userList);
+      // TODO add empty array message to view.
     } catch (error) {
       logError(error as Error);
+      // TODO add error display message to view
     }
   }
 

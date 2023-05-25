@@ -13,7 +13,6 @@ const USER_LIST_URL =
 
 async function getUserList(): Promise<User[]> {
   const users = await fetchUsers();
-  console.log(users);
   return users.map((user: ApiUser) => {
     const { account_id, profile_image, display_name, reputation } = user;
     return {

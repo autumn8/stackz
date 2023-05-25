@@ -1,4 +1,4 @@
-import { MouseEvent, ReactElement, ReactFragment, useState } from "react";
+import { MouseEvent, useState } from "react";
 import { User } from "./user.interface";
 import "./UserInfo.scss";
 
