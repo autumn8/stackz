@@ -1,4 +1,5 @@
 import { User } from "./user.interface";
+import "./UserInfo.scss";
 
 interface UserInfoProps {
   user: User;
@@ -7,9 +8,15 @@ interface UserInfoProps {
 const UserInfo = ({ user }: UserInfoProps) => {
   return (
     <div className="user-info">
-      <img src={user.profileImage} />
-      <h1>{user.displayName}</h1>
-      <h2>{user.reputation}</h2>
+      <img src={user.profileImage} className="user-info__image" />
+      <div className="user-info__content">
+        <h1 className="user-info__name">{user.displayName}</h1>
+        <h2 className="user-info__reputation">{user.reputation}</h2>
+        <div className="user-info__actions">
+          <button>Follow</button>
+          <button>Block</button>
+        </div>
+      </div>
     </div>
   );
 };

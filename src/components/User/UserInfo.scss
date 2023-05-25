@@ -1,0 +1,64 @@
+.user-info {
+  height: 160px;
+  border-radius: $app-border-radius;
+  background-color: rgb(69, 63, 53);
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+
+  &__image {
+    border-radius: $app-border-radius;
+    width: 140px;
+    height: 140px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    flex-basis: 100%;
+    position: relative;
+  }
+
+  &__name {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+
+  &__reputation {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  &__actions {
+    border-radius: 10px;
+    background-color: #4f4f4f;
+    padding: 10px;
+    gap: 10px;
+    display: flex;
+    justify-content: end;
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+  }
+}
+
+//responsive rules
+
+.user-info {
+  flex-basis: calc(33.33% - $app-margin);
+}
+
+@media screen and (max-width: $layout-breakpoint-medium) {
+  .user-info {
+    flex-basis: calc(50% - $app-margin);
+  }
+}
+
+@media screen and (max-width: $layout-breakpoint-narrow) {
+  .user-info {
+    flex-basis: 100%;
+  }
+}
