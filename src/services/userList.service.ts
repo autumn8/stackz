@@ -1,4 +1,3 @@
-import { logError } from "./errorLogger.service";
 import { ApiUser, User } from "../components/User/user.interface";
 import axios from "axios";
 
@@ -16,8 +15,9 @@ async function getUserList(): Promise<User[]> {
   const users = await fetchUsers();
   console.log(users);
   return users.map((user: ApiUser) => {
-    const { profile_image, display_name, reputation } = user;
+    const { account_id, profile_image, display_name, reputation } = user;
     return {
+      accountId: account_id,
       profileImage: profile_image,
       displayName: display_name,
       reputation,

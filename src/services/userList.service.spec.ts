@@ -7,11 +7,23 @@ vi.mock("axios");
 test("getUserList", async () => {
   //assemble
   const apiResponseMock = {
-    items: [{ display_name: "Bob", profile_image: "bob.jpg", reputation: 10 }],
+    items: [
+      {
+        account_id: 10,
+        display_name: "Bob",
+        profile_image: "bob.jpg",
+        reputation: 10,
+      },
+    ],
   };
 
   const expectedUserList = [
-    { displayName: "Bob", profileImage: "bob.jpg", reputation: 10 },
+    {
+      accountId: 10,
+      displayName: "Bob",
+      profileImage: "bob.jpg",
+      reputation: 10,
+    },
   ];
 
   (axios.get as Mock).mockResolvedValueOnce({
