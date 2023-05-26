@@ -27,7 +27,7 @@ const UserList = () => {
   if (isLoading) {
     return (
       <div className="flex-container flex-column">
-        <div className="user-list__loading">Fetching users..</div>
+        <div className="user-list__message">Fetching users..</div>
       </div>
     );
   }
@@ -35,9 +35,17 @@ const UserList = () => {
   if (error) {
     return (
       <div className="flex-container flex-column">
-        <div className="user-list__loading">
+        <div className="user-list__message">
           There was an error loading users. ({error})
         </div>
+      </div>
+    );
+  }
+
+  if (!userList?.length) {
+    return (
+      <div className="flex-container flex-column">
+        <div className="user-list__message">Sorry, no users to display :(</div>
       </div>
     );
   }

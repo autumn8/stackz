@@ -9,7 +9,7 @@
   cursor: pointer;
 
   &:hover {
-    background-color: rgb(68, 54, 54);
+    background-color: rgb(77, 72, 63);
   }
 
   &__image {
@@ -21,14 +21,14 @@
   &__content {
     display: flex;
     flex-direction: column;
-    padding: 5px;
+    padding: 5px 5px 5px 10px;
     flex-basis: 100%;
     position: relative;
   }
 
   &__name {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.7rem;
     font-weight: 400;
   }
 
@@ -55,17 +55,32 @@
     justify-content: end;
     position: absolute;
     bottom: 0;
-    right: 0;
     transition: transform 0.2s ease-in-out;
-    transform: translateX(250px);
+    transform: translateY(75px);
 
     &--active {
-      transform: translateX(0px);
+      transform: translateY(0px);
     }
   }
 
   &__action-button {
     width: 100px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #159b7e;
+    cursor: pointer;
+    transition: border-color 0.25s;
+
+    &:hover {
+      background-color: #19b090;
+    }
+    &:active {
+      background-color: #158e74;
+    }
   }
 
   &--blocked {

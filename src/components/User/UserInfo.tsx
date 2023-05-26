@@ -61,7 +61,7 @@ const UserInfo = ({ user }: UserInfoProps) => {
             onClick={onToggleFollowUser}
             className="user-info__action-button"
           >
-            {user.isFollowing ? "UnFollow" : "Follow"}
+            {user.isFollowing ? "Unfollow" : "Follow"}
           </button>
           <button onClick={onBlockUser} className="user-info__action-button">
             Block
