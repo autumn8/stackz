@@ -17,6 +17,10 @@ const userListSlice = createSlice({
   name: "userList",
   initialState,
   reducers: {
+    blockUser(state, { payload: userId }: PayloadAction<number>) {
+      const user = state.userList.find((user) => user.accountId === userId);
+      if (user) user.isBlocked = true;
+    },
     getUserListStart(state) {
       state.isLoading = true;
       state.error = null;
@@ -30,9 +34,13 @@ const userListSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
-    toggleFollowing(state, { payload: userId }: PayloadAction<number>) {
+    toggleFollowUser(state, { payload: userId }: PayloadAction<number>) {
       const user = state.userList.find((user) => user.accountId === userId);
       if (user) user.isFollowing = !user.isFollowing;
+    },
+    unFollowUser(state, { payload: userId }: PayloadAction<number>) {
+      const user = state.userList.find((user) => user.accountId === userId);
+      if (user) user.isFollowing = false;
     },
   },
 });
@@ -41,7 +49,9 @@ export const {
   getUserListStart,
   getUserListSuccess,
   getUserListError,
-  toggleFollowing,
+  blockUser,
+  toggleFollowUser,
+  unFollowUser,
 } = userListSlice.actions;
 
 export default userListSlice.reducer;

@@ -40,8 +40,9 @@
 
   &__following {
     margin-left: $app-margin;
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
+    background-size: contain;
     background-image: url("../../assets/icons8-following-24.png");
   }
 
