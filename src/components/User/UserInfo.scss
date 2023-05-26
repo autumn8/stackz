@@ -38,6 +38,13 @@
     font-weight: 400;
   }
 
+  &__following {
+    margin-left: $app-margin;
+    width: 24px;
+    height: 24px;
+    background-image: url("../../assets/icons8-following-24.png");
+  }
+
   &__actions {
     border-radius: 10px;
     background-color: #4f4f4f;
@@ -48,12 +55,21 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    transition: transform 0.3s ease-in-out;
-    transform: translateX(230px);
+    transition: transform 0.2s ease-in-out;
+    transform: translateX(250px);
 
     &--active {
       transform: translateX(0px);
     }
+  }
+
+  &__action-button {
+    width: 100px;
+  }
+
+  &--blocked {
+    pointer-events: none;
+    opacity: 0.4;
   }
 }
 

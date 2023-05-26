@@ -20,6 +20,8 @@ async function getUserList(): Promise<User[]> {
       profileImage: profile_image,
       displayName: display_name,
       reputation,
+      isFollowing: false,
+      isBlocked: false,
     };
   });
 }

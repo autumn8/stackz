@@ -30,10 +30,18 @@ const userListSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
+    toggleFollowing(state, { payload: userId }: PayloadAction<number>) {
+      const user = state.userList.find((user) => user.accountId === userId);
+      if (user) user.isFollowing = !user.isFollowing;
+    },
   },
 });
 
-export const { getUserListStart, getUserListSuccess, getUserListError } =
-  userListSlice.actions;
+export const {
+  getUserListStart,
+  getUserListSuccess,
+  getUserListError,
+  toggleFollowing,
+} = userListSlice.actions;
 
 export default userListSlice.reducer;

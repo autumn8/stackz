@@ -3,6 +3,8 @@ export interface User {
   displayName: string;
   profileImage: string;
   reputation: number;
+  isFollowing: boolean;
+  isBlocked: boolean;
 }
 
 export interface ApiUser {
