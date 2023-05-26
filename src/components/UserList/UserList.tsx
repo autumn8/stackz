@@ -36,7 +36,7 @@ const UserList = () => {
     return (
       <div className="flex-container flex-column">
         <div className="user-list__loading">
-          There was an error loading users
+          There was an error loading users. ({error})
         </div>
       </div>
     );
