@@ -4,6 +4,8 @@ import { getUserList } from "./userList.service";
 
 vi.mock("axios");
 
+// TODO add error response tests
+
 test("getUserList", async () => {
   //assemble
   const apiResponseMock = {
@@ -23,6 +25,8 @@ test("getUserList", async () => {
       displayName: "Bob",
       profileImage: "bob.jpg",
       reputation: 10,
+      isBlocked: false,
+      isFollowing: false,
     },
   ];
 
