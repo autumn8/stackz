@@ -51,3 +51,4 @@ npm run build
 - Implement error logger.
 - Add firebase deploy with github action integration.
 - Add documentation generation
+- Add cypress E2E tests
