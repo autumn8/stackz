@@ -39,7 +39,7 @@ const UserInfo = ({ user }: UserInfoProps) => {
   };
 
   return (
-    <div
+    <article
       className={`user-info ${user.isBlocked ? "user-info--blocked" : ""}`}
       onClick={toggleUserActions}
     >
@@ -68,7 +68,7 @@ const UserInfo = ({ user }: UserInfoProps) => {
           </button>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 
