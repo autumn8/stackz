@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getUserListStart,
@@ -7,11 +7,13 @@ import {
 } from "./userListSlice";
 
 import UserInfo from "../User/UserInfo";
-import "./UserList.scss";
 import { RootState } from "../../store";
 import { getUserList } from "../../services/userList.service";
 
+import "./UserList.scss";
+
 const UserList = () => {
+  const [filter, setFilter] = useState("");
   const dispatch = useDispatch();
   const { userList, isLoading, error } = useSelector(
     (state: RootState) => state.userList
@@ -23,6 +25,14 @@ const UserList = () => {
       .then((users) => dispatch(getUserListSuccess(users)))
       .catch((error) => dispatch(getUserListError(error.message)));
   }, [dispatch]);
+
+  const onFilterChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setFilter(event.target.value);
+  };
+
+  const filteredUserList = userList.filter((user) =>
+    user.displayName.toLowerCase().includes(filter.toLowerCase())
+  );
 
   if (isLoading) {
     return (
@@ -44,18 +54,41 @@ const UserList = () => {
 
   if (!userList?.length) {
     return (
-      <div className="flex-container flex-column">
-        <div className="user-list__message">Sorry, no users to display :(</div>
-      </div>
+      <>
+        <header>
+          <input
+            type="text"
+            value={filter}
+            onChange={onFilterChange}
+            placeholder="Filter users"
+          />
+        </header>
+        <div className="flex-container flex-column">
+          <div className="user-list__message">
+            Sorry, no users to display :().
+          </div>
+        </div>
+      </>
     );
   }
 
   return (
-    <div className="user-list">
-      {userList.map((user) => (
-        <UserInfo key={user.accountId} user={user} />
-      ))}
-    </div>
+    <section>
+      <header>
+        <input
+          className="user-list__filter"
+          type="text"
+          value={filter}
+          onChange={onFilterChange}
+          placeholder="Filter users"
+        />
+      </header>
+      <div className="user-list">
+        {filteredUserList.map((user) => (
+          <UserInfo key={user.accountId} user={user} />
+        ))}
+      </div>
+    </section>
   );
 };
 
