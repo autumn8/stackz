@@ -6,6 +6,7 @@ Stacks is React sample project that loads a list of the top 20 stack overflow us
 
 - Vite & SWC
 - React
+- Redux
 - Typescript
 - Vitest (Unit testing)
 - SCSS (Using BEM naming conventions)
@@ -14,7 +15,7 @@ Stacks is React sample project that loads a list of the top 20 stack overflow us
 ## Features
 
 - Feature 1: Loads and displays list of stack overflow users with profile name, reputation & image.
-- Feature 2: Has responsive flex layout (no framework used).
+- Feature 2: Has responsive flex layout (no framework used). S
 
 ## Installation
 
@@ -42,3 +43,11 @@ To build the project for production:
 ```bash
 npm run build
 ```
+
+## TODO
+
+- Extract conditionals for loading, error and filtering into seperate components.
+- Add tests for reducers
+- Implement error logger.
+- Add firebase deploy with github action integration.
+- Add documentation generation
