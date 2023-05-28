@@ -14,8 +14,11 @@ Stacks is React sample project that loads a list of the top 20 stack overflow us
 
 ## Features
 
-- Feature 1: Loads and displays list of stack overflow users with profile name, reputation & image.
-- Feature 2: Has responsive flex layout (no framework used). S
+- Loads and displays list of stack overflow users with profile name, reputation & image
+- Responsive flex layout
+- Toggle user follow
+- Block user
+- Search users
 
 ## Installation
 
