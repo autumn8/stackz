@@ -1,7 +1,6 @@
 import { MouseEvent, useState } from "react";
 import { User } from "./user.interface";
 import "./UserInfo.scss";
-import "../../scss/_flexhelpers.scss";
 import { useDispatch } from "react-redux";
 import {
   toggleFollowUser,

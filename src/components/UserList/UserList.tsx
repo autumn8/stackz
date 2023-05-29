@@ -5,15 +5,17 @@ import {
   getUserListSuccess,
   getUserListError,
 } from "./userListSlice";
-
 import UserInfo from "../User/UserInfo";
 import { RootState } from "../../store";
 import { getUserList } from "../../services/userList.service";
-
+import { User } from "../User/user.interface";
 import "./UserList.scss";
+import UserListLoading from "./UserListLoading";
+import UserListError from "./UserListError";
 
 const UserList = () => {
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState<string>("");
+  const [filteredUserList, setFilteredUserList] = useState<User[]>([]);
   const dispatch = useDispatch();
   const { userList, isLoading, error } = useSelector(
     (state: RootState) => state.userList
@@ -26,31 +28,20 @@ const UserList = () => {
       .catch((error) => dispatch(getUserListError(error.message)));
   }, [dispatch]);
 
+  useEffect(() => {
+    const filteredUserList = userList.filter((user) =>
+      user.displayName.toLowerCase().includes(filter.toLowerCase())
+    );
+    setFilteredUserList(filteredUserList);
+  }, [userList, filter]);
+
   const onFilterChange = (event: ChangeEvent<HTMLInputElement>) => {
     setFilter(event.target.value);
   };
 
-  const filteredUserList = userList.filter((user) =>
-    user.displayName.toLowerCase().includes(filter.toLowerCase())
-  );
+  if (isLoading) return <UserListLoading />;
 
-  if (isLoading) {
-    return (
-      <div className="flex-container flex-column">
-        <div className="user-list__message">Fetching users..</div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="flex-container flex-column">
-        <div className="user-list__message">
-          There was an error loading users. ({error})
-        </div>
-      </div>
-    );
-  }
+  if (error) return <UserListError error={error} />;
 
   if (!userList?.length) {
     return (

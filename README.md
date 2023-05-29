@@ -1,6 +1,10 @@
 # Stackz
 
-Stacks is React sample project that loads a list of the top 20 stack overflow users from [url].
+Stacks is React sample project that loads a list of the top 20 stack overflow users.
+
+<p align="center">
+  <img src="./stackz.png" title="Stackz image">  
+</p>
 
 ## Built With
 
@@ -49,7 +53,7 @@ npm run build
 
 ## TODO
 
-- Extract conditionals for loading, error and filtering into seperate components.
+- Extract conditional rendering logic for filtering into seperate components.
 - Add tests for reducers
 - Implement error logger.
 - Add firebase deploy with github action integration.

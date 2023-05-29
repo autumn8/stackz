@@ -1,0 +1,28 @@
+//variables
+$layout-breakpoint-narrow: 860px;
+$layout-breakpoint-medium: 1400px;
+$app-margin: 10px;
+$app-border-radius: 5px;
+
+//flex helpers
+.flex-container {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.align-center {
+  align-items: center;
+}
+
+//common
+.app-message {
+  align-self: center;
+  margin-top: 40px;
+}
