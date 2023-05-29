@@ -51,11 +51,13 @@ To build the project for production:
 npm run build
 ```
 
+## Deploy
+Auto deploys to firebase hosting on push to master though github actions. 
+Deployment test url: https://stackz-a7f8e.web.app/
+
 ## TODO
 
 - Extract conditional rendering logic for filtering into seperate components.
-- Add tests for reducers
 - Implement error logger.
-- Add firebase deploy with github action integration.
 - Add documentation generation
 - Add cypress E2E tests
