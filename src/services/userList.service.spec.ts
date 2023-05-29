@@ -1,4 +1,4 @@
-import { Mock, expect, test, describe, it, vi } from "vitest";
+import { Mock, expect, describe, it, vi } from "vitest";
 import axios from "axios";
 import { getUserList } from "./userList.service";
 
