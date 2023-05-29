@@ -2,7 +2,7 @@ import { ApiUser, User } from "../components/User/user.interface";
 import axios from "axios";
 
 const USER_LIST_URL =
-  "http://api.stackexchange.com/2.2/users?pagesize=20&order=desc&sort=reputation&site=stackoverflow";
+  "https://api.stackexchange.com/2.2/users?pagesize=20&order=desc&sort=reputation&site=stackoverflow";
 
 /**
  * Gets a mapped array of users with {profileImage,  displayName, reputation & accountId}.
